@@ -1,1 +1,15 @@
 Implementation of the classic game Space Invaders using HTML 5...
+
+Current version: 0.0
+
+### TODO ###
+
+0.1
+- add the interacion with keyboard (Z - move left, X - move right, SPACE - shoot)
+- implement the ship movement
+- implement the shooting action
+
+0.2
+- create the enemies class
+
+### BUGS ###
