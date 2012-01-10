@@ -26,4 +26,18 @@ function Player(x, y) {
 		//the the image
 		_ctx.drawImage(this.image, positionX, positionY);
 	}
+
+	/**
+	 * Moves the player character to left
+	 */
+	this.moveLeft = function() {
+		;
+	}
+
+	/**
+	 * Moves the player character to right
+	 */
+	 this.moveRight = function() {
+	 	
+	 }
 }
