@@ -1,5 +1,11 @@
-var width = 320;
-var height = 500;
+/**
+ * File game.js
+ * implement by Adelino Lobão
+ * 09/10/2012
+ */
+
+var width = 600;
+var height = 800;
 
 var gameLoop;
 
@@ -9,7 +15,7 @@ var ctx = c.getContext("2d");
 c.width = width;
 c.height = height;
 
-var clear = function() {
+var drawScene = function() {
 	ctx.fillStyle = '#000';
 	ctx.clearRect(0, 0, width, height);
 	ctx.beginPath();
@@ -18,10 +24,17 @@ var clear = function() {
 	ctx.fill();
 }
 
-var RunGame = function() {
-	clear();
+var player = new Player(width/2, height/2);
 
-	gameLoop = setTimeout(RunGame(), 1000 / 50);
+var RunGame = function() {
+	drawScene();
+
+	//draw the player
+	player.draw(ctx);
+
+	const FRAME_RATE = 50;
+	var intervalTime = 1000 / FRAME_RATE;	
+	gameLoop = setTimeout(RunGame, intervalTime);
 }
 
 RunGame();
