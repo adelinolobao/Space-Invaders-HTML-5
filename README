@@ -1,15 +1,30 @@
 Implementation of the classic game Space Invaders using HTML 5...
 
-Current version: 0.0
+Current version: 0.1
 
 ### TODO ###
 
 0.1
-- add the interacion with keyboard (Z - move left, X - move right, SPACE - shoot)
-- implement the ship movement
-- implement the shooting action
+* add the interacion with keyboard (Z - move left, X - move right, SPACE - shoot)
+* implement the ship movement
 
 0.2
-- create the enemies class
+- create an object to handle the keyboard events
+- create a laser object, that represents the shoot action
+- implement the shooting action
+
+0.3
+- rethink the way the main variables are accessed (for example the context size,...). Probably it's better to have a section in the game.js with all the main variables.
+- create the sprite object, with will make the player object simpler
+
+0.4
+- create the enemies object
+- implement the movement of enemies
+
+0.5
+- detect collisions between a shoot and the enemies
 
 ### BUGS ###
+
+0.1
+- ship position is hardcoded
