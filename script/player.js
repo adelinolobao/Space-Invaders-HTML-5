@@ -3,11 +3,16 @@
  * implemented by Adelino Lobão
  * 10/01/2012
  */
-function Player(x, y) {
-	//define initial postion xx
-	this.x = x;
-	//define initial position yy
-	this.y = y;
+function Player(width, height) {
+	//define initial postion
+	this.x = width/2;
+	this.y = height - 100;
+	//define the size of context
+	this.ctxWidth = width;
+	this.ctxHeight = height;
+
+	//increment movement
+	this.incMovement = 20;
 
 	//loading player image
 	this.image = new Image();
@@ -31,13 +36,26 @@ function Player(x, y) {
 	 * Moves the player character to left
 	 */
 	this.moveLeft = function() {
-		;
+		console.log('moveLeft');
+		if(this.x > 0) {
+			this.setPosition(this.x - this.incMovement, this.y);
+		}
 	}
 
 	/**
 	 * Moves the player character to right
 	 */
 	 this.moveRight = function() {
-	 	
+	 	if(this.x < this.ctxWidth) {
+	 		this.setPosition(this.x + this.incMovement, this.y);
+	 	}
+	 }
+
+	 /**
+	  * Define the player positon
+	  */
+	 this.setPosition = function(x, y) {
+	 	this.x = x;
+	 	this.y = y;
 	 }
 }
