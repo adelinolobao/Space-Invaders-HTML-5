@@ -4,6 +4,7 @@
  * 09/10/2012
  */
 
+//definition of window
 var width = 600;
 var height = 800;
 
@@ -24,9 +25,33 @@ var drawScene = function() {
 	ctx.fill();
 }
 
-var player = new Player(width/2, height/2);
+//add a player
+var player = new Player(width, height);
+
+//check the key pressed
+document.onkeypress = function(e) {
+	var e = window.event || e;
+	var charCode = e.charCode;
+
+	var Z_KEY = 122;
+	var X_KEY = 120;
+	var SPACE_KEY = 32
+
+	switch(charCode) {
+		case Z_KEY:
+			player.moveLeft();
+			break;
+		case X_KEY:
+			player.moveRight();
+			break;
+		case SPACE_KEY:
+			console.log('shoot');
+			break;
+	}
+}
 
 var RunGame = function() {
+	//draw the scene
 	drawScene();
 
 	//draw the player
