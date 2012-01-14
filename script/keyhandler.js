@@ -1,7 +1,11 @@
 /**
- * Class KeyHandler
+ * File keyhandler.js
  * implemented by Adelino Lobão
  * 14/01/2012
+ */
+
+/**
+ * Class KeyHandler
  */
 function KeyHandler() {
 	//define the Z key
