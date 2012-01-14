@@ -25,29 +25,14 @@ var drawScene = function() {
 	ctx.fill();
 }
 
-//add a player
+//keyhandler object
+var keyHandler = new KeyHandler();
+//player object
 var player = new Player(width, height);
 
-//check the key pressed
-document.onkeypress = function(e) {
-	var e = window.event || e;
-	var charCode = e.charCode;
-
-	var Z_KEY = 122;
-	var X_KEY = 120;
-	var SPACE_KEY = 32
-
-	switch(charCode) {
-		case Z_KEY:
-			player.moveLeft();
-			break;
-		case X_KEY:
-			player.moveRight();
-			break;
-		case SPACE_KEY:
-			console.log('shoot');
-			break;
-	}
+//handle events when the a key is pressed
+document.onkeypress = function(e){
+	keyHandler.keyPress(e, player);	
 }
 
 var RunGame = function() {
