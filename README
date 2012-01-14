@@ -7,7 +7,7 @@ Current version: 0.0
 0.1
 * add the interacion with keyboard (Z - move left, X - move right, SPACE - shoot)
 * implement the ship movement
-- create an object to handle the keyboard events
+* create an object to handle the keyboard events
 
 0.2
 - structure the code only with objects. Create the main.js that will contains the main variables of the game and will load the game.js.
