@@ -36,7 +36,6 @@ function Player(width, height) {
 	 * Moves the player character to left
 	 */
 	this.moveLeft = function() {
-		console.log('moveLeft');
 		if(this.x > 0) {
 			this.setPosition(this.x - this.incMovement, this.y);
 		}
@@ -53,6 +52,8 @@ function Player(width, height) {
 
 	 /**
 	  * Define the player positon
+	  * @param x - position x
+	  * @param y - position ys
 	  */
 	 this.setPosition = function(x, y) {
 	 	this.x = x;
