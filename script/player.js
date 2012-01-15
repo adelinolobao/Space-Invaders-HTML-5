@@ -1,62 +1,44 @@
 /**
- * Class Player
+ * File player.js
  * implemented by Adelino Lobão
  * 10/01/2012
  */
-function Player(width, height) {
-	//define initial postion
-	this.x = width/2;
-	this.y = height - 100;
-	//define the size of context
-	this.ctxWidth = width;
-	this.ctxHeight = height;
 
+ /**
+  * Class Player
+  * @param widht - window widht
+  * @param height - window height
+  */
+function Player() {
 	//increment movement
-	this.incMovement = 20;
-
-	//loading player image
-	this.image = new Image();
-	this.image.src = 'script/images/ship.png';
-	this.width = 26;
-	this.height = 16;
+	const incMovement = 20;
+	
+	//create the player sprite
+	var sprite = new Sprite();
+	//set sprite image and size
+	sprite.initImage('script/images/ship.png', 26, 16);
+	//set initial position of the sprite
+	sprite.initPosition(WINDOW_WIDTH/2, WINDOW_HEIGHT-100);
 
 	/**
 	 * Draw the player
-	 * @param _ctx - canvas context
+	 * @param context - canvas context
 	 */
-	this.draw = function(_ctx) {
-		//removes the image size
-		var positionX = this.x - (this.width / 2);
-		var positionY = this.y - (this.height / 2);
-		//the the image
-		_ctx.drawImage(this.image, positionX, positionY);
+	this.draw = function(context) {
+		sprite.draw(context);
 	}
 
 	/**
 	 * Moves the player character to left
 	 */
 	this.moveLeft = function() {
-		if(this.x > 0) {
-			this.setPosition(this.x - this.incMovement, this.y);
-		}
+		sprite.moveLeft();
 	}
 
 	/**
 	 * Moves the player character to right
 	 */
 	 this.moveRight = function() {
-	 	if(this.x < this.ctxWidth) {
-	 		this.setPosition(this.x + this.incMovement, this.y);
-	 	}
-	 }
-
-	 /**
-	  * Define the player positon
-	  * @param x - position x
-	  * @param y - position ys
-	  */
-	 this.setPosition = function(x, y) {
-	 	this.x = x;
-	 	this.y = y;
+	 	sprite.moveRight();
 	 }
 }
