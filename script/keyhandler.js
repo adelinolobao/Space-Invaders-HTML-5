@@ -20,7 +20,7 @@ function KeyHandler() {
  	 * @param e - event
  	 * @param player - player
  	 */
- 	this.keyPress = function(e, player) {
+ 	this.keyPress = function(e) {
  		//get the event
  		var e = window.event || e;
  		//char code
@@ -34,7 +34,7 @@ function KeyHandler() {
  				player.moveRight();
  				break;
  			case this.SPACE_KEY:
- 				console.log('shoot');
+ 				lasers[lasers.length] = new Laser(player);
  				break;
  		}
  	}
