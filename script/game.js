@@ -52,7 +52,7 @@ var context = frameWindow.getContext("2d");
 //keyhandler object
 var keyHandler = new KeyHandler();
 //player object
-var player = new Player(WINDOW_WIDTH, WINDOW_HEIGHT);
+var player = new Player();
 
 //handle events when the a key is pressed
 document.onkeypress = function(e){
