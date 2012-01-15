@@ -17,13 +17,28 @@ var drawWindow = function() {
 }
 
 /**
+ * Animate all the lasers shoot by the player
+ */
+var animateLasers = function() {
+	//iterate through all the lasers
+	for(index in lasers) {
+		//draw laser
+		lasers[index].draw();
+		//add a step to the laser
+		lasers[index].step();
+	}
+}
+
+/**
  * Run the game
  */
 var runGame = function() {
  	//draw the window game
  	drawWindow();
  	//draw the player
-	player.draw(context);
+	player.draw();
+	//animate lasers
+	animateLasers();
 	//set timeout function
 	gameLoop = setTimeout(runGame, intervalTime);
 }
@@ -53,10 +68,12 @@ var context = frameWindow.getContext("2d");
 var keyHandler = new KeyHandler();
 //player object
 var player = new Player();
+//array that will store the lasers
+var lasers = new Array();
 
 //handle events when the a key is pressed
 document.onkeypress = function(e){
-	keyHandler.keyPress(e, player);	
+	keyHandler.keyPress(e);	
 }
 
 //run the game
