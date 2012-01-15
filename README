@@ -1,6 +1,6 @@
 Implementation of the classic game Space Invaders using HTML 5...
 
-Current version: 0.2
+Current version: 0.3
 
 ### TODO ###
 
@@ -14,8 +14,8 @@ Current version: 0.2
 * adapt the player class to use the sprite object
 
 0.3
-- create a laser object, that represents the shoot action
-- implement the shooting action
+* create a laser object, that represents the shoot action
+* implement the shooting action
 
 0.4
 - create the enemies object
@@ -27,3 +27,5 @@ Current version: 0.2
 ### BUGS ###
 
 - ship position is hardcoded
+- laser initial position is hardcoded
+- laser size is hardcoded
