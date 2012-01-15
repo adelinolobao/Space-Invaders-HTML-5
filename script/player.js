@@ -6,26 +6,20 @@
 
  /**
   * Class Player
-  * @param widht - window widht
-  * @param height - window height
   */
-function Player() {
-	//increment movement
-	const incMovement = 20;
-	
+function Player() {	
 	//create the player sprite
 	var sprite = new Sprite();
 	//set sprite image and size
 	sprite.initImage('script/images/ship.png', 26, 16);
 	//set initial position of the sprite
-	sprite.initPosition(WINDOW_WIDTH/2, WINDOW_HEIGHT-100);
+	sprite.initPosition(WINDOW_WIDTH / 2, WINDOW_HEIGHT - 100);
 
 	/**
 	 * Draw the player
-	 * @param context - canvas context
 	 */
-	this.draw = function(context) {
-		sprite.draw(context);
+	this.draw = function() {
+		sprite.draw();
 	}
 
 	/**
@@ -40,5 +34,19 @@ function Player() {
 	 */
 	 this.moveRight = function() {
 	 	sprite.moveRight();
+	 }
+
+	 /**
+	  * Return the position xx of the player
+	  */
+	 this.getPositionX = function() {
+	 	return sprite.x;
+	 }
+
+	 /**
+	  * Return the position yy of the player
+	  */
+	 this.getPositionY = function() {
+	 	return sprite.y;
 	 }
 }
