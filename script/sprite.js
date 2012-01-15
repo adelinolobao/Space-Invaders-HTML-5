@@ -51,9 +51,8 @@ function Sprite() {
 
 	/**
 	 * Draw sprite
-	 * @param context - canvas context
 	 */
-	this.draw = function(context) {
+	this.draw = function() {
 		//removes image size
 		var positionX = this.x - (this.width / 2);
 		var positionY = this.y - (this.height / 2);
