@@ -1,6 +1,6 @@
 Implementation of the classic game Space Invaders using HTML 5...
 
-Current version: 0.1
+Current version: 0.2
 
 ### TODO ###
 
@@ -10,11 +10,12 @@ Current version: 0.1
 * create an object to handle the keyboard events
 
 0.2
-- create a laser object, that represents the shoot action
-- implement the shooting action
+* create the sprite object
+* adapt the player class to use the sprite object
 
 0.3
-- create the sprite object, with will make the player object simpler
+- create a laser object, that represents the shoot action
+- implement the shooting action
 
 0.4
 - create the enemies object
