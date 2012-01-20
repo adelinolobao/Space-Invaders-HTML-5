@@ -25,7 +25,7 @@ var createEnemies = function(numRows, numCols) {
 	//reference position xx
 	var refPosX = (WINDOW_WIDTH / 2); 
 	//reference position yy
-	var refPosY = (WINDOW_HEIGHT / 4);
+	var refPosY = (WINDOW_HEIGHT / 8);
 	//add enemies horde
 	for(var x = 0;  x < numRows; ++x) {
 		for(var y = 0; y < numCols; ++y) {
@@ -76,6 +76,21 @@ var animate = function() {
 }
 
 /**
+ * Detect colisions between the lasers and enemies
+ */
+var detectColisions = function() {
+	for(indexLaser in lasers) {
+		for(indexEnemy in enemies) {
+			if(colisionHandler.detectColisionBetweenObjects(lasers[indexLaser], enemies[indexEnemy])) {
+				lasers.splice(indexLaser, 1);
+				enemies.splice(indexEnemy, 1);
+				break;
+			}
+		}
+	}
+}
+
+/**
  * Run the game
  */
 var runGame = function() {
@@ -85,6 +100,8 @@ var runGame = function() {
 	player.draw();
 	//animate all the elements
 	animate();
+	//check colisions
+	detectColisions();
 	//set timeout function
 	gameLoop = setTimeout(runGame, intervalTime);
 }
@@ -115,6 +132,8 @@ var context = frameWindow.getContext("2d");
 
 //keyhandler object
 var keyHandler = new KeyHandler();
+//colisionhandler object
+var colisionHandler = new ColisionHandler();
 //player object
 var player = new Player();
 //array that store the lasers
