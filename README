@@ -1,6 +1,6 @@
 Implementation of the classic game Space Invaders using HTML 5...
 
-Current version: 0.4
+Current version: 0.5
 
 ### TODO ###
 
@@ -23,10 +23,16 @@ Current version: 0.4
 * implement the movement of enemies
 
 0.5
-- detect collisions between a laser and the enemies
-- remove the laser and the enemy that collide
+* detect collisions between a laser and the enemies
+* remove the laser and the enemy when collide
 
 0.6
+- add sound to shoot
+- add sound to when some enemy is hit
+- add background sound
+
+0.7
+- code review, improve the enemies movement mecanism
 - detect two keys pressed and reacts to the commands
 
 ### BUGS ###
