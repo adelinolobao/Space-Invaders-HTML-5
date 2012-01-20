@@ -31,9 +31,12 @@ function Laser(player) {
 	}
 
 	/**
-	 * Simulate the step
+	 * Simulate one step of the laser and verifies if it 
+	 * already reach the top of the screen
 	 */
 	this.step = function() {
 		this.y = this.y - INCREMENT;
+		if(this.y <= 0)	return true;
+		return false;
 	}
 }
