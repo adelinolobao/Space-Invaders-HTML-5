@@ -43,6 +43,7 @@ var createEnemies = function(numRows, numCols) {
  * Animate elements
  */
 var animate = function() {
+	var currentAction = '';
 	//iterate through all the lasers
 	for(index in lasers) {
 		//draw laser
@@ -52,11 +53,26 @@ var animate = function() {
 			lasers.splice(index, 1);
 		}
 	}
+	//check the movement of the enemies
+	for(index in enemies) {
+		currentAction = enemies[index].checkStep();
+		if(currentAction != previousAction){
+			break;
+		}
+	}
 	//iterate through all the enemies
 	for(index in enemies) {
 		//draw enemy
 		enemies[index].draw();
+		//jump enemy
+		if(currentAction != previousAction){
+			enemies[index].jump();
+		}else{
+			//simulate step
+			enemies[index].step();		
+		}
 	}
+	previousAction = currentAction;
 }
 
 /**
@@ -69,9 +85,6 @@ var runGame = function() {
 	player.draw();
 	//animate all the elements
 	animate();
-
-	console.log(lasers.length);
-
 	//set timeout function
 	gameLoop = setTimeout(runGame, intervalTime);
 }
@@ -87,6 +100,9 @@ const FRAME_RATE = 50;
 var gameLoop;
 //interval time
 var intervalTime = 1000 / FRAME_RATE;
+
+//previous action of enemies
+var previousAction = 'left';
 
 //get frame window
 var frameWindow = document.getElementById("content");
@@ -107,7 +123,7 @@ var lasers = new Array();
 var enemies = new Array();
 
 //add enemies
-createEnemies(6, 4);
+createEnemies(6, 6);
 
 //handle events when the a key is pressed
 document.onkeypress = function(e){

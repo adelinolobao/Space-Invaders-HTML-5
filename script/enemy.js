@@ -11,11 +11,14 @@
  */
 function Enemy(initPosX, initPosY) {
 	//enemy sprite
-	var sprite = new Sprite();
+	var sprite = new Sprite(3);
 	//set image and size
 	sprite.initImage('script/images/enemy.png', 22, 16);
 	//set initial position of the sprite
 	sprite.initPosition(initPosX, initPosY);
+
+	//initial action
+	var currentAction = 'left';
 
 	/**
 	 * Draws the enemy sprite
@@ -26,6 +29,37 @@ function Enemy(initPosX, initPosY) {
 
 	/**
 	 * Simulates one step of the enemy
+	 * @param action - indicates the action of the enemy
 	 */
-	this.step = function() {}
+	this.step = function() {
+		if(currentAction == 'left') {
+			sprite.moveLeft();
+		}else if(currentAction == 'right') {
+			sprite.moveRight();
+		}
+	}
+
+	/**
+	 * Simulates one jump forward
+	 */
+	this.jump = function() {
+		if(currentAction == 'left') {
+			currentAction = 'right';
+		}else {
+			currentAction = 'left';
+		}
+		sprite.moveFront();
+	}
+
+	/**
+	 * Verifies if the enemies needs to change of action
+	 */
+	this.checkStep = function() {
+		if(sprite.x <= 10 && currentAction == 'left') {
+			currentAction = 'right';
+		}else if(sprite.x >= (WINDOW_WIDTH - 10) && currentAction == 'right') {
+			currentAction = 'left';
+		}
+		return currentAction;
+	}
 }

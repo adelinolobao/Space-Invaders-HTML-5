@@ -6,10 +6,11 @@
 
  /**
   * Class Sprite
+  * @param increment - is the increment added to the sprite
   */
-function Sprite() {
+function Sprite(increment) {
 	//increment
-	const INCREMENT = 20;
+	var increment = increment;
 
 	/**
 	 * Initialize sprite image and size
@@ -64,13 +65,20 @@ function Sprite() {
 	 * Move sprite to the left
 	 */
 	this.moveLeft = function() {
-		this.setPosition(this.x - INCREMENT, this.y);
+		this.setPosition(this.x - increment, this.y);
 	}
 
 	/**
 	 * Move sprite to the right
 	 */
 	this.moveRight = function() {
-		this.setPosition(this.x + INCREMENT, this.y);
+		this.setPosition(this.x + increment, this.y);
+	}
+
+	/**
+	 * Move sprite to the front
+	 */
+	this.moveFront = function() {
+		this.setPosition(this.x, this.y + (increment * 3));
 	}
 }
