@@ -1,6 +1,6 @@
 Implementation of the classic game Space Invaders using HTML 5...
 
-Current version: 0.3
+Current version: 0.4
 
 ### TODO ###
 
@@ -20,7 +20,7 @@ Current version: 0.3
 0.4
 * create the enemies object
 * remove lasers that reach the top of the screen from the array
-- implement the movement of enemies
+* implement the movement of enemies
 
 0.5
 - detect collisions between a laser and the enemies
