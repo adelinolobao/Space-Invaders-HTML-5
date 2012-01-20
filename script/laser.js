@@ -12,9 +12,9 @@ function Laser(player) {
 	//increment
 	const INCREMENT = 20;
 	//laser width
-	var width = 5;
+	this.width = 5;
 	//laser height
-	var height = 5;
+	this.height = 5;
 	//intial position xx
 	this.x = player.getPositionX() - 2;
 	//initial position yy
@@ -27,7 +27,7 @@ function Laser(player) {
 		//context style
 		context.fillStyle = "red";
 		//draw the rectangle laser
-		context.fillRect(this.x, this.y, width, height);	
+		context.fillRect(this.x, this.y, this.width, this.height);	
 	}
 
 	/**
@@ -39,4 +39,18 @@ function Laser(player) {
 		if(this.y <= 0)	return true;
 		return false;
 	}
+
+	/**
+	  * Return the position xx of the laser
+	  */
+	 this.getPositionX = function() {
+	 	return this.x;
+	 }
+
+	 /**
+	  * Return the position yy of the laser
+	  */
+	 this.getPositionY = function() {
+	 	return this.y;
+	 }
 }
