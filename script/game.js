@@ -17,15 +17,45 @@ var drawWindow = function() {
 }
 
 /**
- * Animate all the lasers shoot by the player
+ * Create an horde of enemies, the horde is divided in columns and rows
+ * @param numRows - indicate the number of rows
+ * @param numCols - indicate the number of columns
  */
-var animateLasers = function() {
+var createEnemies = function(numRows, numCols) {
+	//reference position xx
+	var refPosX = (WINDOW_WIDTH / 2); 
+	//reference position yy
+	var refPosY = (WINDOW_HEIGHT / 4);
+	//add enemies horde
+	for(var x = 0;  x < numRows; ++x) {
+		for(var y = 0; y < numCols; ++y) {
+			//position xx
+			var posX = refPosX + (40 * x);
+			//position yy
+			var posY = refPosY + (40 * y);
+			//add an enemy to the array
+			enemies[enemies.length] = new Enemy(posX, posY);
+		}
+	}
+}
+
+/**
+ * Animate elements
+ */
+var animate = function() {
 	//iterate through all the lasers
 	for(index in lasers) {
 		//draw laser
 		lasers[index].draw();
-		//add a step to the laser
-		lasers[index].step();
+		//simulate one step
+		if(lasers[index].step()){
+			lasers.splice(index, 1);
+		}
+	}
+	//iterate through all the enemies
+	for(index in enemies) {
+		//draw enemy
+		enemies[index].draw();
 	}
 }
 
@@ -37,8 +67,11 @@ var runGame = function() {
  	drawWindow();
  	//draw the player
 	player.draw();
-	//animate lasers
-	animateLasers();
+	//animate all the elements
+	animate();
+
+	console.log(lasers.length);
+
 	//set timeout function
 	gameLoop = setTimeout(runGame, intervalTime);
 }
@@ -68,8 +101,13 @@ var context = frameWindow.getContext("2d");
 var keyHandler = new KeyHandler();
 //player object
 var player = new Player();
-//array that will store the lasers
+//array that store the lasers
 var lasers = new Array();
+//array that store the enemies
+var enemies = new Array();
+
+//add enemies
+createEnemies(6, 4);
 
 //handle events when the a key is pressed
 document.onkeypress = function(e){
