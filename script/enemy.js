@@ -10,10 +10,18 @@
  * @param initPosY - initial position yy
  */
 function Enemy(initPosX, initPosY) {
+
+	//image src
+	var imgSrc = 'script/images/enemy.png';
+	//width
+	this.width = 22;
+	//height
+	this.height = 16;
+
 	//enemy sprite
 	var sprite = new Sprite(3);
 	//set image and size
-	sprite.initImage('script/images/enemy.png', 22, 16);
+	sprite.initImage(imgSrc, this.width, this.height);
 	//set initial position of the sprite
 	sprite.initPosition(initPosX, initPosY);
 
@@ -62,4 +70,18 @@ function Enemy(initPosX, initPosY) {
 		}
 		return currentAction;
 	}
+
+	/**
+	  * Return the position xx of the enemy
+	  */
+	 this.getPositionX = function() {
+	 	return sprite.x;
+	 }
+
+	 /**
+	  * Return the position yy of the enemy
+	  */
+	 this.getPositionY = function() {
+	 	return sprite.y;
+	 }
 }

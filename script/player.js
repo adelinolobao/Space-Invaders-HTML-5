@@ -7,7 +7,15 @@
  /**
   * Class Player
   */
-function Player() {	
+function Player() {
+
+	//image src
+	var imgSrc = 'script/images/ship.png';
+	//width
+	this.width = 26;
+	//height
+	this.height = 16;
+
 	//create the player sprite
 	var sprite = new Sprite(20);
 	//set sprite image and size
