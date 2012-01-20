@@ -18,14 +18,20 @@ Current version: 0.3
 * implement the shooting action
 
 0.4
-- create the enemies object
+* create the enemies object
+* remove lasers that reach the top of the screen from the array
 - implement the movement of enemies
 
 0.5
-- detect collisions between a shoot and the enemies
+- detect collisions between a laser and the enemies
+- remove the laser and the enemy that collide
+
+0.6
+- detect two keys pressed and reacts to the commands
 
 ### BUGS ###
 
 - ship position is hardcoded
 - laser initial position is hardcoded
 - laser size is hardcoded
+- position of the first enemy is hardcoded
