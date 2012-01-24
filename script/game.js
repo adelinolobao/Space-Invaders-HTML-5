@@ -25,7 +25,7 @@ var createEnemies = function(numRows, numCols) {
 	//reference position xx
 	var refPosX = (WINDOW_WIDTH / 2); 
 	//reference position yy
-	var refPosY = (WINDOW_HEIGHT / 8);
+	var refPosY = (WINDOW_HEIGHT / 10);
 	//add enemies horde
 	for(var x = 0;  x < numRows; ++x) {
 		for(var y = 0; y < numCols; ++y) {
@@ -109,7 +109,7 @@ var runGame = function() {
 //window width
 const WINDOW_WIDTH = 600;
 //window height
-const WINDOW_HEIGHT = 800;
+const WINDOW_HEIGHT = 600;
 //frame rate
 const FRAME_RATE = 50;
 

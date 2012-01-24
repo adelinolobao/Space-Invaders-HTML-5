@@ -6,13 +6,18 @@ implemented by Adelino Lobão
 <html>
 	<head>
 		<title>Space Invaders</title>
-		<link type="text/css" rel="stylesheet" href="style/style.css">
+		<link rel="stylesheet" href="style/style_space.css" />
+		<link rel="stylesheet" href="style/normalize.css"/>
 	</head>
 	<body>
 		<header>
 			<img src="style/images/logo.gif" />
 		</header>
+		<section id="controls">Z (Left) - X (Right) - SPACE (Shoot)</section>
 		<canvas id="content"></canvas>
+		<section id="info">
+			<a href="https://github.com/adelinolobao/Space-Invaders-HTML-5" target="_blank"><strong>Follow project on github</strong></a>
+		</section>
 		<script src="script/keyhandler.js"></script>
 		<script src="script/colisionhandler.js"></script>
 		<script src="script/enemy.js"></script>
