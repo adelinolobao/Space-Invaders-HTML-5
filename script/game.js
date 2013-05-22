@@ -44,6 +44,10 @@ var createEnemies = function(numRows, numCols) {
  */
 var animate = function() {
 	var currentAction = '';
+
+	if(player.movingLeft)	player.moveLeft();
+	else if(player.movingRight)	player.moveRight();
+
 	//iterate through all the lasers
 	for(index in lasers) {
 		//draw laser
@@ -53,6 +57,7 @@ var animate = function() {
 			lasers.splice(index, 1);
 		}
 	}
+
 	//check the movement of the enemies
 	for(index in enemies) {
 		currentAction = enemies[index].checkStep();
@@ -60,6 +65,7 @@ var animate = function() {
 			break;
 		}
 	}
+
 	//iterate through all the enemies
 	for(index in enemies) {
 		//draw enemy

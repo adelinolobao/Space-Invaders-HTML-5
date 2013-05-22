@@ -25,18 +25,14 @@ function KeyHandler() {
  	this.keyPress = function(e) {
  		keyPressed = e.which ? e.which : window.event.keyCode;
 
- 		console.log("Key release: " + keyPressed);
-
  		switch(keyPressed) {
  			case this.Z_KEY:
  			case this.z_KEY:
  				player.movingLeft = true;
- 				player.moveLeft();
  				break;
  			case this.X_KEY:
  			case this.x_KEY:
  				player.movingRight = true;
- 				player.moveRight();
  				break;
  			case this.SPACE_KEY:
  				lasers[lasers.length] = new Laser(player);
@@ -50,8 +46,6 @@ function KeyHandler() {
  	 */
  	this.keyUp = function(e) {
  		keyPressed = e.which ? e.which : window.event.keyCode;
-
- 		console.log("Key release: " + keyPressed);
 
  		switch(keyPressed) {
  			case this.Z_KEY:
