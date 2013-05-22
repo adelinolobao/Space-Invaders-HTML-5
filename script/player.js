@@ -16,6 +16,11 @@ function Player() {
 	//height
 	this.height = 16;
 
+	//indicates if the sprite is moving left
+	this.movingLeft = false;
+	//indicates if the sprite is moving right
+	this.movingRight = false;
+
 	//create the player sprite
 	var sprite = new Sprite(20);
 	//set sprite image and size
